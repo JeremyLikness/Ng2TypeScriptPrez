@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- saved from url=(0136)file:///C:/Users/jlikness/OneDrive/Documents/Presentations/Angular%202.0%20with%20TypeScript%2025%20Jan%202016/deck.js-latest/index.html -->
+<html class="js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>AngularJS 2.0 and TypeScript</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="./index_files/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="./index_files/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="./index_files/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="./index_files/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="./index_files/deck.status.css">
+  <link rel="stylesheet" media="screen" href="./index_files/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="./index_files/neon.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="./index_files/vertical-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="./index_files/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="./index_files/modernizr.custom.js"></script>
+</head>
+<body>
+  <div class="deck-container on-slide-slide-0 on-slide-0 deck-scale">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <section class="slide deck-current" id="slide-0" aria-hidden="false">
+      <div class="deck-slide-scaler"><h1>Angular 2.0 and TypeScript</h1><h2>Jeremy Likness</h2><div><b><a href="https://twitter.com/jeremylikness" target="_blank">@JeremyLikness</a></b></div><div><b><a href="http://bit.ly/coderblog" target="_blank">bit.ly/coderblog</a></b></div><div><b><a href="http://bit.ly/ivisionappdev" target="_blank">bit.ly/ivisionappdev</a></b></div></div>
+      
+      
+      
+      
+    </section>
+
+    <section class="slide deck-next" id="slide-1" aria-hidden="true">
+      <div class="deck-slide-scaler"><h2>Agenda</h2><ul><li>Tools</li>
+        <li>TypeScript</li>
+        <li>Angular "Hello, World"</li>
+        <li>Advanced Angular</li>
+        </ul></div>
+      
+    </section>
+
+    <section class="slide deck-after" id="slide-2" aria-hidden="true">
+      <div class="deck-slide-scaler" style="transform: scale(0.88717);"><h2>Tools</h2><div>
+        <a href="https://code.visualstudio.com/" target="_blank"><img src="./index_files/code.png"></a>
+        <blockquote>Build and debug modern web and cloud applications. Code is free and available on your favorite platform - Linux, Mac OSX, and Windows.</blockquote>
+      </div><div>
+        <a href="https://nodejs.org/en/" target="_blank"><img src="./index_files/node.png"></a>
+        <blockquote>Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</blockquote>
+      </div></div>
+      
+      
+    </section>
+
+    <section class="slide deck-after" id="slide-3" aria-hidden="true">
+      <div class="deck-slide-scaler"><h2>TypeScript</h2><ul>
+        <li>Types</li>
+          <li>Interfaces</li>
+          <li>Classes</li>
+          <li>Modules</li>
+          <li>Function Declarations and Lambda Expression with Management of <code>this</code></li>
+          <li>Generics</li>
+          <li>Decorators</li>
+          <li>Type Libraries (TSD)</li>
+      </ul></div>
+        
+    </section>
+    
+    <section class="slide deck-after" id="slide-4" aria-hidden="true">
+      <div class="deck-slide-scaler" style="transform: scale(0.752315);"><h1>Demo: <a href="http://www.typescriptlang.org/Playground#src=%2F%2F%20Let&#39;s%20check%20out%20some%20typescript!" target="_blank">TypeScript</a></h1><pre class="background">module TypeScriptDemo {
+	
+	export interface IStyle {
+		style: string;
+	}
+	
+	function GetStyle&lt;T extends IStyle&gt;(instance: T): string {
+		return instance.style;
+	}
+	
+	export interface IColor extends IStyle {
+		red: number;
+		green: number;
+		blue: number;
+	}
+	
+	let asHex = (t: number) =&gt; {
+		var result: string = t.toString(16);
+		return result.length &lt; 2 ? "0" + result : result;
+	}	
+	export class Color implements IColor {
+		public style: string;
+		constructor(public red: number, public green: number, public blue: number) {
+			this.style = "#" + asHex(red) + asHex(green) + asHex(blue);
+		}
+	}
+	
+	var color = new Color(255, 128, 64); 
+	var span = &lt;HTMLSpanElement&gt;document.createElement("span");
+	span.innerText = "This is your demo";
+	span.style.color = GetStyle(color);
+	document.body.appendChild(span);
+}
+      </pre></div>
+    
+    </section>
+
+    <section class="slide deck-after" id="slide-5" aria-hidden="true">
+      <div class="deck-slide-scaler"><h1>Demo: Angular "Hello, World"</h1></div>
+      
+    </section>
+    
+    <section class="slide deck-after" id="slide-6" aria-hidden="true">
+      <div class="deck-slide-scaler" style="transform: scale(0.781877);"><h2>Set up Dependencies</h2><ul>
+        <li><code>npm init</code></li>
+        <li><code>tsd query node --action install</code></li>
+        <li><pre>"scripts": {
+    "tsc":"tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start" : "concurrent \"npm run tsc:w\" \"npm run lite\""
+  }</pre></li>
+    <li><pre>"dependencies" : {
+      "angular2" : "2.0.0-beta.0",
+      "systemjs" : "0.19.6",
+      "es6-promise": "^3.0.2",
+      "es6-shim": "^0.33.3",
+      "reflect-metadata": "0.1.2",
+      "rxjs": "5.0.0-beta.0", 
+      "zone.js" : "0.5.10"
+  },
+  "devDependencies": {
+      "concurrently" : "^1.0.0",
+      "lite-server" : "^1.3.2",
+      "typescript" : "^1.7.5"
+  }
+</pre></li>
+<li><code>npm install</code></li>
+      </ul></div>
+      
+      </section>
+      
+      <section class="slide deck-after" id="slide-7" aria-hidden="true">
+        <div class="deck-slide-scaler"><h2>Configure TypeScript Compiler</h2><ul>
+          <li>Add <code>tsconfig.json</code></li>
+          <li><pre>{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "system",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+</pre></li>
+        </ul></div>
+        
+        </section>
+      
+      <section class="slide deck-after" id="slide-8" aria-hidden="true">
+        <div class="deck-slide-scaler" style="transform: scale(0.875224);"><h2>Bootstrap HTML</h2><ul>
+        <li>Add <code>index.html</code></li>
+        <li><pre>        &lt;script src="node_modules/angular2/bundles/angular2-polyfills.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/systemjs/dist/system.src.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/rxjs/bundles/Rx.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/angular2/bundles/angular2.dev.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/angular2/bundles/upgrade.dev.js"&gt;&lt;/script&gt;
+        </pre></li>
+        <li><pre>         &lt;script&gt;
+            System.config({
+                packages: {
+                    app: {
+                        format: "register",
+                        defaultExtension: "js"
+                    }
+                }
+            })
+            System.import('app/app')
+            .then(null, console.error.bind(console));
+         &lt;/script&gt;
+            </pre></li>
+      </ul></div>
+      
+     </section>
+      
+      <section class="slide deck-after" id="slide-9" aria-hidden="true">
+        <div class="deck-slide-scaler"><h2>Bootstrap Code and Define Component</h2><ul>
+        <li>Add <code>app.ts</code></li>
+        <li><pre>import {Component} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;h1&gt;Hello, Angular 2 World!&lt;/h1&gt;'
+})
+export class AppComponent { }
+
+bootstrap(AppComponent);
+        </pre></li>
+        <li><code>npm start</code></li>
+      </ul></div>
+      
+      </section>
+
+      <section class="slide deck-after" id="slide-10" aria-hidden="true">
+        <div class="deck-slide-scaler"><h2>Oops!</h2><code>
+          &lt;my-app&gt;Angular 2!&lt;/my-app&gt;
+        </code></div>
+        
+      </section>
+    <!-- End slides. -->
+    <section class="slide deck-after" id="slide-11" aria-hidden="true">
+      <div class="deck-slide-scaler"><h1>Advanced Angular Concepts</h1></div>
+    </section>
+      
+    <section class="slide deck-after" id="slide-12" aria-hidden="true">
+      <div class="deck-slide-scaler"><h2>Templates</h2><table><thead><tr><th>Syntax</th><th>&nbsp;&nbsp;&nbsp;</th><th>Description</th></tr></thead>
+      <tbody><tr><td>{{one | two}}</td>
+      <td>&nbsp;&nbsp;&nbsp;</td>
+      <td>Binds to property <code>one</code><br>Pipes (filters) through pipe <code>two</code></td></tr>
+      <tr><td>&lt;input [value]="foo"/&gt;&nbsp;&lt;input bind-value="foo"/&gt;</td>
+      <td></td>
+      <td>Binds <code>input</code> property <code>value</code> to expression <code>foo</code></td></tr>
+      <tr><td>&lt;input [attr.value]="foo"/&gt;</td>
+      <td></td>
+      <td>Binds <code>input</code> attribute <code>value</code> to expression <code>foo</code></td></tr>
+      <tr><td>&lt;div [class]="foo"/&gt;</td>
+      <td></td>
+      <td>Binds value of <code>div</code> property <code>class</code> to expression <code>foo</code></td></tr>
+      <tr><td>&lt;div [class.bar]="foo"/&gt;</td>
+      <td></td>
+      <td>Adds or removes class <code>bar</code> to or from <code>div</code> based on truthyness of expression <code>foo</code></td></tr>
+      <tr><td>&lt;button (click)="foo($event)"&gt;&nbsp;&lt;button on-click="foo($event)"&gt;</td>
+        <td></td>
+        <td>Calls method <code>food</code> when <code>click</code> event is raised and passes the <code>event</code> object</td></tr>
+      <tr><td>&lt;input [(ngModel)]="name"&gt;&nbsp;&lt;input bind-ngModel="name" on-ngModelChange="name=$event"&gt;</td>
+      <td></td>
+      <td>Sets up two-way data-binding between property <code>ngModel</code> and expression <code>name</code></td></tr>
+      <tr><td>&lt;div *ngFor="#foo of bar"&gt;&nbsp;<div template="ngFor #foo of bar">&nbsp;&lt;template ngFor bind-ngForOf="bar" #foo="$implicit"&gt;&lt;div/&gt;&lt;/template&gt;</div></td>
+      <td></td>
+      <td>Creates a local template for the <code>ngFor</code> directive<br>Sets up local variable <code>foo</code> based on iterating <code>bar</code></td></tr>
+      <tr><td>&lt;input #name&gt;</td>
+      <td></td>
+      <td>Creates a local variable <code>name</code> that references the <code>input</code> element</td></tr>
+       </tbody></table></div>
+      
+    </section>
+    
+    <section class="slide deck-after" id="slide-13" aria-hidden="true">
+      <div class="deck-slide-scaler" style="transform: scale(0.809801);"><h2>Forms</h2><h3>Implicit</h3><pre>&lt;form (ngSubmit)="onSubmit()" #myForm="ngForm"&gt;
+   &lt;input type="text" class="form-control" required
+      [(ngModel)]="model.foo"
+      ngControl="fooCtrl" #fooElement #fooForm="ngForm"/&gt;
+   &lt;br&gt;Current: {{fooElement.className}}
+   &lt;br&gt;Is Valid: {{fooForm.valid}}
+   &lt;button type="submit" [disabled]="!myForm.form.valid"&gt;Go!&lt;/button&gt;
+&lt;/form&gt;
+        </pre><ul><li><code>ng-touched / ng-untouched</code></li>
+        <li><code>ng-dirty / ng-pristine</code></li>
+        <li><code>ng-valid / ng-invalid</code></li>
+        </ul><h3>Explicit</h3><pre>this.fooForm = fb.group({
+  bar: ['', Validators.required],
+});
+&lt;form [ngFormModel]="fooForm"&gt;
+   &lt;input ngControl="bar" type="text" placeholder="Raise the bar"&gt;
+&lt;/form&gt;
+      </pre></div>
+      
+      
+        
+        
+        </section>
+      
+      <section class="slide deck-after" id="slide-14" aria-hidden="true">
+        <div class="deck-slide-scaler"><h2>Classes</h2><ul>
+          <li><code>@Component</code> — re-usable component with behavior and UI</li>
+          <li><code>@Directive</code> — re-usable behavior, UI may or may not exist</li>
+          <li><code>@Pipe</code> — re-usable filter to transform any input to an output</li>
+          <li><code>@Injectable</code> — notifies Angular to perform constructor injection of dependencies</li>
+        </ul><table>
+          <thead>
+            <tr><th>Special Method</th>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+            <th>Description</th>
+          </tr></thead>
+        <tbody><tr>
+          <td><code>constructor</code></td>
+          <td></td>
+          <td>Handle dependency injection</td>
+        </tr>
+        <tr>
+          <td><code>ngOnChanges(e)</code></td>
+            <td></td>
+            <td>Any change to input properties</td>
+        </tr>
+        <tr>
+          <td><code>ngOnInit</code></td>
+          <td></td>
+          <td>After constructor and initialization/changes</td>
+        </tr>
+        <tr>
+          <td><code>ngOnDestroy</code></td>
+          <td></td>
+          <td>Before instance is destroyed</td>
+        </tr>
+        </tbody></table></div>
+        
+        
+        </section>
+        
+        <section class="slide deck-after" id="slide-15" aria-hidden="true">
+          <div class="deck-slide-scaler"><h1>Example App: <a href="https://github.com/JeremyLikness/Angular2HealthApp" target="_blank">Angular 2 Health App</a></h1></div>
+        </section>
+        
+        <section class="slide deck-after" id="slide-16" aria-hidden="true">
+          <div class="deck-slide-scaler"><h2>Next Steps</h2><ul>
+            <li>Follow me on Twitter: <a href="https://twitter.com/JeremyLikness" target="_blank">@JeremyLikness</a></li>
+            <li>Read my blog: <a href="http://bit.ly/coderblog" target="_blank">http://bit.ly/coderblog</a></li>
+            <li>Hire our team for training and consulting: <a href="http://bit.ly/ivisionappdev" target="_blank">http://bit.ly/ivisionappdev</a></li>
+            <li>Watch WintellectNOW videos: <a href="http://www.wintellectnow.com/" target="_blank">Use Code LIKNESS-16</a></li>
+            <li>Join us same place and time next week for a hands-on lab!</li>
+          </ul><br><h3>Questions?</h3></div>
+          
+          
+          
+        </section>
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="file:///C:/Users/jlikness/OneDrive/Documents/Presentations/Angular%202.0%20with%20TypeScript%2025%20Jan%202016/deck.js-latest/index.html#" class="deck-prev-link deck-nav-disabled" title="Previous" aria-disabled="true">←</a>
+      <a href="file:///C:/Users/jlikness/OneDrive/Documents/Presentations/Angular%202.0%20with%20TypeScript%2025%20Jan%202016/deck.js-latest/index.html#slide-1" class="deck-next-link" title="Next" aria-disabled="false">→</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current">1</span>
+      /
+      <span class="deck-status-total">17</span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="file:///C:/Users/jlikness/OneDrive/Documents/Presentations/Angular%202.0%20with%20TypeScript%2025%20Jan%202016/deck.js-latest/" method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"><option value="slide-0"></option><option value="slide-1"></option><option value="slide-2"></option><option value="slide-3"></option><option value="slide-4"></option><option value="slide-5"></option><option value="slide-6"></option><option value="slide-7"></option><option value="slide-8"></option><option value="slide-9"></option><option value="slide-10"></option><option value="slide-11"></option><option value="slide-12"></option><option value="slide-13"></option><option value="slide-14"></option><option value="slide-15"></option><option value="slide-16"></option></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+  </div>
+
+<!-- Required JS files. -->
+<script src="./index_files/jquery.min.js"></script>
+<script src="./index_files/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="./index_files/deck.menu.js"></script>
+<script src="./index_files/deck.goto.js"></script>
+<script src="./index_files/deck.status.js"></script>
+<script src="./index_files/deck.navigation.js"></script>
+<script src="./index_files/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+
+
+</body></html>
